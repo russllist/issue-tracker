@@ -1,3 +1,5 @@
+// This is the API that allows this app to write to and and read from the MySQL database via Prisma
+
 import { NextRequest, NextResponse } from "next/server";
 import {z} from 'zod';
 import prisma from "@/prisma/client";
@@ -7,7 +9,7 @@ const createIssueSchema = z.object({
     description: z.string().min(1)
 });
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest) {              //Function called POST that takes the argument 'request' of type 'NextRequest'
     const body = await request.json();
     const validation = createIssueSchema.safeParse(body);
     if (!validation.success)

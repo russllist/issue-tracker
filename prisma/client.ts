@@ -1,3 +1,5 @@
+// Code copied from prisma website to ensure only one instance of prisma client
+
 import { PrismaClient } from '@prisma/client' 
 
 const prismaClientSingleton = () => { 
