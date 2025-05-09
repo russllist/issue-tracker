@@ -10,7 +10,7 @@ const createIssueSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {              //Function called POST that takes the argument 'request' of type 'NextRequest'
-    const body = await request.json();
+    const body = await request.json();                          //Returns promise. A json object when successful?
     const validation = createIssueSchema.safeParse(body);
     if (!validation.success)
         return NextResponse.json(validation.error.errors, {status: 400})
